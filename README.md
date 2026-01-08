@@ -1,0 +1,2 @@
+# MindEase--AI-Powered-Companion-for-Mental-Wellness-Inner-Peace
+MindEase is your AI-powered mental wellness companion. We combine smart mood tracking with personalized support—from soothing playlists and guided meditation to an empathetic AI chat powered by Google Gemini. Whether you're stressed or happy, MindEase provides instant tools to help you find balance and inner peace anytime, anywhere.
