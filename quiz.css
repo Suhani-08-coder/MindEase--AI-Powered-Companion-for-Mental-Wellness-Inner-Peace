@@ -1,0 +1,115 @@
+body {
+    background: #e0eafc;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-wrapper {
+    max-width: 650px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.step-badge {
+    background: #ebf8ff;
+    color: #3182ce;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.progress-bar {
+    height: 6px;
+    background: #edf2f7;
+    border-radius: 10px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(118, 75, 162, 0.5);
+}
+
+#question-text {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin: 30px 0;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.option-btn {
+    width: 100%;
+    padding: 20px;
+    border: 2px solid #edf2f7;
+    background: white;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    color: #4a5568;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.option-btn:hover {
+    border-color: #667eea;
+    background: #f7fafc;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.option-btn::after {
+    content: '→';
+    position: absolute;
+    right: 20px;
+    opacity: 0;
+    transition: 0.2s;
+    transform: translateX(-10px);
+}
+.option-btn:hover::after { opacity: 1; transform: translateX(0); }
+
+.result-card { text-align: center; }
+.score-circle {
+    width: 160px; height: 160px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    background: conic-gradient(#667eea var(--score-pct, 0%), #edf2f7 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.score-circle::before {
+    content: '';
+    position: absolute;
+    width: 140px; height: 140px;
+    background: white;
+    border-radius: 50%;
+}
+.score-circle span { position: relative; z-index: 2; font-size: 3rem; font-weight: 800; color: #2d3748; }
+
+.ai-box {
+    background: #fff5f5;
+    border-left: 5px solid #fc8181;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: left;
+    margin-bottom: 30px;
+}

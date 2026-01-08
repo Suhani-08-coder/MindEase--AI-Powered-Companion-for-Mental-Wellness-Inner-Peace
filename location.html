@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Meditation Centers</title>
+    <link rel="stylesheet" href="welcome-style.css">
+    <link rel="stylesheet" href="location-style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" onclick="window.location.href='Welcome.html'">MindEase</div>
+        <div class="nav-links">
+            <a href="./resources.html" class="nav-item">Relaxation</a>
+            <a href="./quiz.html" class="nav-item">Quiz</a>
+            <a href="./location.html" class="nav-item" style="color:#667eea">Find Centers</a>
+        </div>
+        <div class="user-info">
+             <button onclick="window.location.href='index.html'" class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="location-container">
+        <h1>Recommended Sanctuaries</h1>
+        <p>Explore top-rated places for peace and mindfulness near you.</p>
+        
+        <div class="centers-grid">
+            
+            <div class="center-card">
+                <div class="card-image" style="background-color: #e0f7fa;">🌿</div>
+                <h3>The Mindful Corner</h3>
+                <p class="desc">A quiet urban retreat perfect for beginners.</p>
+                <div class="contact-info">
+                    <p>📍 12 Peace Ave, Wellness City</p>
+                    <p>📞 +91 98765 43210</p>
+                </div>
+                <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+                <button onclick="openMap('The Mindful Corner')">Get Directions</button>
+            </div>
+
+            <div class="center-card">
+                <div class="card-image" style="background-color: #f3e5f5;">🧘‍♀️</div>
+                <h3>Zen Garden Institute</h3>
+                <p class="desc">Nature-based healing and open-air yoga.</p>
+                <div class="contact-info">
+                    <p>📍 45 Green Park, Serenity Lane</p>
+                    <p>📞 +91 98123 45678</p>
+                </div>
+                <div class="rating">⭐⭐⭐⭐☆ (4.7)</div>
+                <button onclick="openMap('Zen Garden Meditation')">Get Directions</button>
+            </div>
+
+            <div class="center-card">
+                <div class="card-image" style="background-color: #fff3e0;">🕯️</div>
+                <h3>Inner Peace Collective</h3>
+                <p class="desc">Group meditation classes and sound therapy.</p>
+                <div class="contact-info">
+                    <p>📍 88 Harmony Road, Central</p>
+                    <p>📞 +91 99887 76655</p>
+                </div>
+                <div class="rating">⭐⭐⭐⭐⭐ (5.0)</div>
+                <button onclick="openMap('Inner Peace Collective')">Get Directions</button>
+            </div>
+
+            <div class="center-card">
+                <div class="card-image" style="background-color: #e8f5e9;">🍃</div>
+                <h3>Urban Soul Sanctuary</h3>
+                <p class="desc">Weekend retreats and stress-relief workshops.</p>
+                <div class="contact-info">
+                    <p>📍 5th Avenue, Quiet Block</p>
+                    <p>📞 +91 91234 56789</p>
+                </div>
+                <div class="rating">⭐⭐⭐⭐☆ (4.8)</div>
+                <button onclick="openMap('Meditation Center')">Find Near Me</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="location-script.js"></script>
+</body>
+</html>

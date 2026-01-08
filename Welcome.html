@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Mood Check</title>
+    <link rel="stylesheet" href="welcome-style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Health-Website</div>
+        <div class="nav-links">
+            <a href="./resources.html" class="nav-item">Relaxation</a>
+            <a href="./quiz.html" class="nav-item">Quiz</a>
+            <a href="./location.html" class="nav-item">Find Centers</a>
+        </div>
+        <div class="user-info">
+            <span id="usernameDisplay">Hello, Friend</span>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+    </nav>
+  
+    <div class="main-container">
+        
+        <header class="greeting-section">
+            <h1 class="fade-in">How are you feeling today?</h1>
+            <p class="subtitle fade-in">Select your mood so we can personalize your experience.</p>
+        </header>
+
+        <div class="mood-grid fade-in-up">
+            
+            <div class="mood-card" onclick="handleMood('great', this)">
+                <div class="emoji">🤩</div>
+                <h3>Great</h3>
+                <p class="mood-hint">Try: Wellness Quiz</p>
+            </div>
+
+            <div class="mood-card" onclick="handleMood('good', this)">
+                <div class="emoji">🙂</div>
+                <h3>Good</h3>
+                <p class="mood-hint">Try: Breathing</p>
+            </div>
+
+            <div class="mood-card" onclick="handleMood('neutral', this)">
+                <div class="emoji">😐</div>
+                <h3>Neutral</h3>
+                <p class="mood-hint">Try: AI Chat</p>
+            </div>
+
+            <div class="mood-card" onclick="handleMood('struggling', this)">
+                <div class="emoji">😣</div>
+                <h3>Struggling</h3>
+                <p class="mood-hint">Try: Calm Videos</p>
+            </div>
+
+            <div class="mood-card" onclick="handleMood('awful', this)">
+                <div class="emoji">😫</div>
+                <h3>Awful</h3>
+                <p class="mood-hint">Try: Music Therapy</p>
+            </div>
+
+        </div>
+
+        <div id="moodMessage" class="message-box hidden">
+            <h2 id="msgTitle"></h2>
+            <p id="msgBody"></p>
+            <button id="msgBtn" class="action-btn">Recommended Action</button>
+        </div>
+
+        <div class="talk-section fade-in-up">
+            <p>Or is there something on your mind?</p>
+            <button onclick="openChat()" class="talk-btn">I wanna talk about something</button>
+        </div>
+
+    </div>
+
+    <div id="chatOverlay" class="modal-overlay">
+        <div class="chat-modal">
+            <div class="chat-header">
+                <h3>What's on your mind?</h3>
+                <span onclick="closeChat()" class="close-icon">&times;</span>
+            </div>
+            <div class="chat-body">
+                <textarea id="userNote" placeholder="Type here... I'm listening."></textarea>
+                <div id="aiResponse" class="ai-response-box hidden"></div>
+            </div>
+            <div class="chat-footer">
+                <button onclick="submitNote()" class="send-btn">Send / Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="welcome-script.js"></script>
+</body>
+</html>

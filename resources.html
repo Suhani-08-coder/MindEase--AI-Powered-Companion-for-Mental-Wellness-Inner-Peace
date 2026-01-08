@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relaxation Zone</title>
+    <link rel="stylesheet" href="welcome-style.css">
+    <link rel="stylesheet" href="resources.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" onclick="window.location.href='Welcome.html'">MindEase</div>
+        <div class="nav-links">
+            <a href="resources.html" class="nav-item" style="color:#667eea">Relaxation</a>
+            <a href="quiz.html" class="nav-item">Quiz</a>
+            <a href="location.html" class="nav-item">Find Centers</a>
+        </div>
+        <div class="user-info">
+             <button onclick="window.location.href='loginPage.html'" class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="resource-container">
+        
+        <div id="videos">
+            <h2 class="section-title">Visual Relaxation</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe height="220" src="https://www.youtube.com/embed/lFcSrYw-ARY" title="Meditation Video"></iframe>
+                    <h3>5 Minute Mindfulness</h3>
+                </div>
+                <div class="video-card">
+                    <iframe height="220" src="https://www.youtube.com/embed/inpok4MKVLM" title="Relaxing Music"></iframe>
+                    <h3>Deep Visuals</h3>
+                </div>
+                <div class="video-card">
+                    <iframe height="220" src="https://www.youtube.com/embed/MIr3Y96h558" title="Nature Sounds"></iframe>
+                    <h3>Forest Walk</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="songs" class="spotify-section">
+            <h2 class="section-title">🎵 Mind Relaxing Playlist</h2>
+            <iframe style="border-radius:12px" 
+                src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u?utm_source=generator" 
+                width="100%" 
+                height="152" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </div>
+
+        <div id="ai" class="ai-assistant">
+            <h2 style="color:white; margin:0;">🤖 AI Mindfulness Guide</h2>
+            <p style="color:white; opacity:0.9;">Powered by Google Web Speech API</p>
+            
+            <div class="visualizer" id="visualizer">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <p style="color: white; font-style: italic; font-size: 1.1rem; margin-bottom: 30px;">"Close your eyes, and let the AI guide you to a calm state."</p>
+            
+            <button onclick="toggleMeditation()" id="speakBtn" class="ai-btn">
+                <span>▶ Start Session</span>
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        const synth = window.speechSynthesis;
+        let isSpeaking = false;
+        let utterance = null;
+
+        const meditationScript = 
+            "Hello. Welcome to your personal relaxation space. " +
+            "Take a deep breath in... and let it out slowly. " +
+            "Feel the tension leaving your shoulders. " +
+            "You are safe here. " +
+            "Listen to the silence around you. " +
+            "Focus only on your breathing. In... and Out. " +
+            "You are doing a great job. Stay calm, and carry this peace with you.";
+
+        function toggleMeditation() {
+            const btn = document.getElementById('speakBtn');
+            const visualizer = document.getElementById('visualizer');
+
+            if (!isSpeaking) {
+                utterance = new SpeechSynthesisUtterance(meditationScript);
+                const voices = synth.getVoices();
+                const googleVoice = voices.find(v => v.name.includes("Google US English"));
+                if (googleVoice) utterance.voice = googleVoice;
+
+                utterance.rate = 0.85; 
+                utterance.pitch = 1;
+                
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    visualizer.classList.remove('playing');
+                    btn.innerHTML = "<span>▶ Start Session</span>";
+                };
+
+                synth.speak(utterance);
+                isSpeaking = true;
+                visualizer.classList.add('playing');
+                btn.innerHTML = "<span>⏹ Stop Session</span>";
+            } else {
+                synth.cancel();
+                isSpeaking = false;
+                visualizer.classList.remove('playing');
+                btn.innerHTML = "<span>▶ Start Session</span>";
+            }
+        }
+    </script>
+</body>
+</html>

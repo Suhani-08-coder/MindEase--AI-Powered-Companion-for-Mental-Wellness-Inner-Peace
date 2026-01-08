@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Wellness Quiz</title>
+    <link rel="stylesheet" href="welcome-style.css">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo" onclick="window.location.href='Welcome.html'">MindEase</div>
+        <div class="nav-links">
+            <a href="resources.html" class="nav-item">Relaxation</a>
+            <a href="quiz.html" class="nav-item" style="color:#667eea">Quiz</a>
+            <a href="location.html" class="nav-item">Find Centers</a>
+        </div>
+        <div class="user-info">
+             <button onclick="window.location.href='index.html'" class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="quiz-wrapper">
+        <div id="quiz-container">
+            <div class="header-section">
+                <span class="step-badge">Question <span id="current-step">1</span>/5</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+            </div>
+            
+            <h2 id="question-text" class="fade-in"></h2>
+            <div class="options-group" id="options-container"></div>
+        </div>
+
+        <div id="loading-container" class="hidden">
+            <div class="spinner"></div>
+            <h3>Consulting AI Health Expert...</h3>
+            <p>Analyzing your answers to find the best relaxation method for you.</p>
+        </div>
+
+        <div id="result-container" class="hidden">
+            <div class="result-card">
+                <h2>Your Wellness Report</h2>
+                <div class="score-circle">
+                    <span id="score-display">0</span>
+                    <span class="total-text">/ 50</span>
+                </div>
+                
+                <div class="ai-box">
+                    <h3>🤖 AI Recommendation:</h3>
+                    <p id="ai-feedback-text">Loading recommendation...</p>
+                </div>
+
+                <div class="action-buttons">
+                    <button onclick="window.location.href='resources.html'" class="action-btn primary">Go to Relaxation Zone</button>
+                    <button onclick="restartQuiz()" class="action-btn secondary">Retake Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="quiz-script.js"></script>
+</body>
+</html>
